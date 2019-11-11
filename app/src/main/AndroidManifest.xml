@@ -9,6 +9,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- en keyboard -->
+        <service
+            android:name=".MyInputMethodService"
+            android:label="CustomKeyboard"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+        </service>
+
+        <!-- ko keyboard -->
+        <service
+            android:name=".MyInputMethodServiceKo"
+            android:label="CustomKeyboardKo"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method_ko" />
+
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+        </service>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,16 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".MyInputMethodService"
-            android:label="CustomKeyboard"
-            android:permission="android.permission.BIND_INPUT_METHOD">
-            <meta-data android:name="android.view.im" android:resource="@xml/method"/>
-            <intent-filter>
-                <action android:name="android.view.InputMethod"/>
-            </intent-filter>
-        </service>
     </application>
 
 </manifest>
